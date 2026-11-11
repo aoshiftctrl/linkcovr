@@ -1,0 +1,18 @@
+/* Eigener Stacking Context, sonst konkurriert der z-index des Links mit Elementen außerhalb des Covers */
+.wp-block-cover.has-shft-link,
+.wp-block-cover-image.has-shft-link {
+	isolation: isolate;
+}
+
+.wp-block-cover .shft-cover-link,
+.wp-block-cover-image .shft-cover-link {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+}
+
+.wp-block-cover .shft-cover-link:focus-visible,
+.wp-block-cover-image .shft-cover-link:focus-visible {
+	outline: var(--wp--custom--focus--outline, 2px solid currentColor);
+	outline-offset: -4px;
+}
